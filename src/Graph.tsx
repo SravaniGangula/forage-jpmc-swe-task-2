@@ -33,7 +33,6 @@ class Graph extends Component<IProps, {}> {
   componentDidMount() {
     // Get element to attach the table from the DOM.
     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
-
     const schema = {
       stock: 'string',
       top_ask_price: 'float',
@@ -41,7 +40,7 @@ class Graph extends Component<IProps, {}> {
       timestamp: 'date',
     };
 
-    if (window.perspective && window.perspective.worker()) {
+    if (window.perspective ) {
       this.table = window.perspective.worker().table(schema);
     }
     if (this.table) {
